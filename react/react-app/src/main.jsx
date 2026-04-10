@@ -1,3 +1,5 @@
+console.log("main.jsx loaded");
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -5,22 +7,26 @@ import App from './App.jsx'
 
 const root = createRoot(document.getElementById('root'));
 
-const startApp = (coords = null) => {
-  root.render(
-    <StrictMode>
-      <App coords={coords} />
-    </StrictMode>
-  );
-};
+root.render(
+  <StrictMode>
+    <App coords={null} />
+  </StrictMode>
+);
 
 document.addEventListener('deviceready', () => {
   navigator.geolocation.getCurrentPosition(
     (pos) => {
-      startApp({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+      root.render(
+        <StrictMode>
+          <App coords={{
+            lat: pos.coords.latitude,
+            lng: pos.coords.longitude
+          }} />
+        </StrictMode>
+      );
     },
     (err) => {
-      console.error(err);
-      startApp();
+      console.error("Geolocation failed:", err);
     }
   );
 }, false);
