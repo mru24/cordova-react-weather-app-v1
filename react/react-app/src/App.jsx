@@ -1,38 +1,42 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import CurrentWeather from './components/currentWeatherComponent';
+import CurrentWeather from './components/currentWeatherComponent'
+import Footer from './components/FooterComponents'
+import Header from './components/HeaderComponent'
 
 function App({coords}) {
-  const [ units, setUnits ] = useState('metric');
-  const [ current, setCurrent ] = useState(null);
+  const [ units, setUnits ] = useState('metric')
+  const [ data, setData ] = useState(null)
+  const [ current, setCurrent ] = useState(null)
 
-  const config = {
-    lat: coords?.lat || '53.53412623985714',
-    lon: coords?.lng || '-1.1123927605090957',
-    units: units,
-    APIkey: 'f0ce22eb3cfa24b1b9be9e02ea65467d'
-  }
+  const lat = coords?.lat || '53.53412623985714'
+  const lon = coords?.lng || '-1.1123927605090957'
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+
   const getUnits = () => {
-    units==='metric'? setUnits('imperial') : setUnits('metric');
+    setUnits((prev) => (prev === 'metric' ? 'imperial' : 'metric'));
   }
+
   useEffect(() => {
     const getWeather = async () => {
-      const response = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${config.lat}&lon=${config.lon}&units=${config.units}&appid=${config.APIkey}`)
+      const response = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=${units}&appid=${API_KEY}`)
+      setData(response.data)
       setCurrent(response.data.current)
-      console.log(response.data);
+      console.log(response.data)
     }
-
     getWeather()
-  },[ units, config.lat, config.lon ])
+  },[ units, lat, lon ])
 
   return (
     <>
-      <h1>App ready</h1>
-      <p>{coords ? `Lat: ${coords.lat}, Lng: ${coords.lng}` : "Locating..."}</p>
-      { current && <CurrentWeather current={ current } />}
+      <Header data={data} units={units} />
 
-      <button onClick={getUnits}>Imperial</button>
+      <div className="content">
+        { current && <CurrentWeather current={ current } />}
+      </div>
+
+      <Footer getUnits={getUnits} units={units} coords={coords} />
     </>
   )
 }
