@@ -10,6 +10,7 @@ function App({coords}) {
   const [ units, setUnits ] = useState('metric')
   const [ data, setData ] = useState(null)
   const [ current, setCurrent ] = useState(null)
+  const [ daily, setDaily ] = useState(null)
   const [ hourly, setHourly ] = useState(null)
 
   const lat = coords?.lat || import.meta.env.VITE_WEATHER_LAT
@@ -25,6 +26,7 @@ function App({coords}) {
       const response = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=${units}&appid=${API_KEY}`)
       setData(response.data)
       setCurrent(response.data.current)
+      setDaily(response.data.daily)
       setHourly(response.data.hourly)
       console.log(response.data)
     }
@@ -40,6 +42,8 @@ function App({coords}) {
         { current && <CurrentWeather current={ current } units={ units } />}
 
         { hourly && <SlickSlider target={'hourly'} current={ current } hourly={ hourly } units={ units } />}
+
+        { daily && <SlickSlider target={'daily'} current={ current } daily={daily} hourly={ hourly } units={ units } />}
 
       </div>
 

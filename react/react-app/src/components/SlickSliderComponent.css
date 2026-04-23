@@ -1,0 +1,6 @@
+.slick-dots {
+    bottom: -40px;
+}
+.slick-dots li button::before {
+  font-size: 60px;
+}

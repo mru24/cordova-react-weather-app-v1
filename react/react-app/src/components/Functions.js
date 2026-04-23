@@ -9,11 +9,49 @@ export const getUnitLabels = (unitSystem) => {
     UVI: "UV",
   };
 };
-export const isLastDayHour = (unixTimestamp) => {
-  const date = new Date(unixTimestamp * 1000);
-  return date.getUTCHours() === 23;
+export const getDayName = (timestamp) => {
+  const date = new Date(timestamp * 1000);
+  const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
+
+  // Helper to normalize dates to midnight for accurate comparison
+  const isSameDay = (d1, d2) =>
+    d1.getFullYear() === d2.getFullYear() &&
+    d1.getMonth() === d2.getMonth() &&
+    d1.getDate() === d2.getDate();
+
+  if (isSameDay(date, today)) {
+    return "Today";
+  } else if (isSameDay(date, tomorrow)) {
+    return "Tomorrow";
+  } else {
+    // Returns full name (e.g., "Monday")
+    return date.toLocaleDateString([], { weekday: 'long' });
+  }
 };
-export const isFirstDayHour = (unixTimestamp) => {
-  const date = new Date(unixTimestamp * 1000);
-  return date.getHours() === 0;
+export const startOfDay = (timestamp) => {
+  const date = new Date(timestamp * 1000);
+  const startOfDay = new Date(date);
+  startOfDay.setHours(0, 0, 0, 0);
+  return Math.floor(startOfDay.getTime() / 1000);
+}
+export const endOfDay = (timestamp) => {
+  const date = new Date(timestamp * 1000);
+  const nextDay = new Date(date);
+  nextDay.setDate(date.getDate() + 1);
+  nextDay.setHours(0, 0, 0, 0);
+  return Math.floor(nextDay.getTime() / 1000);
+}
+export const formatDate = (timestamp) => {
+  const date = new Date(timestamp * 1000);
+  return date.toLocaleDateString([], {
+    month: 'short',
+    day: 'numeric',
+    // year: 'numeric'
+  });
+};
+export const formatTime = (timestamp) => {
+  const date = new Date(timestamp * 1000);
+  return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
 };

@@ -92,7 +92,6 @@ function CurrentOverview({current,units,slider}) {
       </div>
     </div>
   );
-
 }
 
 export default CurrentOverview;
