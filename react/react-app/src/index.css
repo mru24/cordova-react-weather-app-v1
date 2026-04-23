@@ -37,7 +37,7 @@
     --text-h: #f3f4f6;
     --bg: #1E3A5F;
     --bg-dk: #16305A;
-    --border: #2e303a;
+    --border: #2d409d;
     --code-bg: #1f2028;
     --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);
@@ -136,7 +136,22 @@ p {
 .m-2 {
   margin: 10px;
 }
+.my-2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .py-2 {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.py-3 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.py-4 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.radius-2 {
+  border-radius: 10px;
 }

@@ -1,7 +1,10 @@
 import './currentWeatherComponent.css'
+import SimpleSlider from './SlickSliderComponent'
+import {getUnitLabels} from './Functions'
 
-function CurrentWeather({current}) {
-  console.log("Current: ",current);
+function CurrentWeather({current,units}) {
+
+  const label = getUnitLabels(units);
 
   if(!current) return <p>Loading weather...</p>
 
@@ -10,37 +13,19 @@ function CurrentWeather({current}) {
       <div className="row">
         <div className="col min-h-120">
           <div className="flex align-items-center justify-content-center h-100">
-            <h1>{ current?.temp && current.temp }</h1>
+            <h1>{ current?.temp && current.temp }{label.temp}</h1>
           </div>
         </div>
         <div className="col min-h-120">
           <div className="flex direction-column align-items-center justify-content-center h-100">
             <img src={`https://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`} />
-            <p>{current.weather[0].main}</p>
+            <p style={{marginTop:"-15px"}}>{current.weather[0].main}</p>
           </div>
         </div>
       </div>
-      <div className="bg-dk m-2">
-        <div className="row py-2">
-          <div className="col">
-            <div className="flex direction-column align-items-center justify-content-center">
-              <p>Humidity</p>
-              <h3>{ current?.humidity && current.humidity }</h3>
-            </div>
-          </div>
-          <div className="col">
-            <div className="flex direction-column align-items-center justify-content-center">
-              <p>Wind</p>
-              <h3>{ current?.wind_speed && current.wind_speed }</h3>
-            </div>
-          </div>
-          <div className="col">
-            <div className="flex direction-column align-items-center justify-content-center">
-              <p>Gusts</p>
-              <h3>{ current?.wind_gust && current.wind_gust  }</h3>
-            </div>
-          </div>
-        </div>
+
+      <div className="current-weather-slider">
+        <SimpleSlider target={'currentOverview'} current={current} units={units} />
       </div>
     </div>
   )
