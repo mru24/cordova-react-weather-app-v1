@@ -9,3 +9,11 @@ export const getUnitLabels = (unitSystem) => {
     UVI: "UV",
   };
 };
+export const isLastDayHour = (unixTimestamp) => {
+  const date = new Date(unixTimestamp * 1000);
+  return date.getUTCHours() === 23;
+};
+export const isFirstDayHour = (unixTimestamp) => {
+  const date = new Date(unixTimestamp * 1000);
+  return date.getHours() === 0;
+};

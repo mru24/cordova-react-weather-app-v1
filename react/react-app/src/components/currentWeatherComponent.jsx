@@ -1,6 +1,6 @@
 import './currentWeatherComponent.css'
-import SimpleSlider from './SlickSliderComponent'
-import {getUnitLabels} from './Functions'
+import SlickSlider from './SlickSliderComponent'
+import { getUnitLabels } from './Functions'
 
 function CurrentWeather({current,units}) {
 
@@ -24,8 +24,8 @@ function CurrentWeather({current,units}) {
         </div>
       </div>
 
-      <div className="current-weather-slider">
-        <SimpleSlider target={'currentOverview'} current={current} units={units} />
+      <div className="current-weather-slider" style={{marginBottom:"50px"}}>
+        <SlickSlider target={'currentOverview'} current={current} units={units} />
       </div>
     </div>
   )

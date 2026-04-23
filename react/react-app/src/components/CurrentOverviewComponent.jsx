@@ -1,13 +1,9 @@
-import Slick from 'react-slick'
-import '../assets/slick/slick.min.css'
-import '../assets/slick/slick-theme.min.css'
-import './CurrentWeatherComponent.css'
+import './CurrentOverviewComponent.css'
 import {getUnitLabels} from './Functions'
 
-const Slider = Slick.default;
-
-function CurrentOverview({current,units}) {
+function CurrentOverview({current,units,slider}) {
   const label = getUnitLabels(units);
+  const Slider = slider;
 
   const settings = {
     dots: true,

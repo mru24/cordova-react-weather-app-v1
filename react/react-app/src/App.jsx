@@ -4,7 +4,7 @@ import './App.css'
 import CurrentWeather from './components/CurrentWeatherComponent'
 import Footer from './components/FooterComponents'
 import Header from './components/HeaderComponent'
-import HourlyWeather from './components/hourlyWeatherComponent'
+import SlickSlider from './components/SlickSliderComponent'
 
 function App({coords}) {
   const [ units, setUnits ] = useState('metric')
@@ -36,8 +36,11 @@ function App({coords}) {
       <Header data={data} units={units} />
 
       <div className="content">
+
         { current && <CurrentWeather current={ current } units={ units } />}
-        { hourly && <HourlyWeather current={ current } hourly={ hourly } units={ units } />}
+
+        { hourly && <SlickSlider target={'hourly'} current={ current } hourly={ hourly } units={ units } />}
+
       </div>
 
       <Footer getUnits={getUnits} units={units} coords={coords} />
