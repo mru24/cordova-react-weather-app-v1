@@ -52,12 +52,71 @@
   }
 }
 
+/* High contrast - most readable */
+.yellow-light { color: #FFE566; }  /* Soft bright yellow */
+.yellow-bright { color: #FFD700; }  /* Gold/yellow */
+.yellow-vibrant { color: #FFCC00; }  /* Vibrant yellow */
+
+/* Medium contrast - good balance */
+.yellow-muted { color: #FFC107; }   /* Amber yellow */
+.yellow-warm { color: #F4C430; }    /* Saffron yellow */
+.yellow-mustard { color: #E3B23C; }  /* Mustard yellow */
+
+/* Lower contrast - more subtle */
+.yellow-dark { color: #D4AF37; }    /* Metallic gold */
+.yellow-subtle { color: #F0E68C; }
+
+/* High contrast - most readable */
+.red-bright { color: #FF4444; }     /* Bright red */
+.red-vibrant { color: #FF3333; }    /* Vibrant red */
+.red-coral { color: #FF6B6B; }      /* Soft coral red */
+
+/* Medium-high contrast */
+.red-warning { color: #FF4D4D; }    /* Warning red */
+.red-crimson { color: #DC143C; }    /* Crimson */
+.red-fire { color: #E63946; }       /* Fire engine red */
+
+/* Medium contrast */
+.red-muted { color: #D9534F; }      /* Muted red (Bootstrap danger) */
+.red-rust { color: #C41E3A; }       /* Cardinal red */
+.red-burgundy { color: #9B2226; }    /* Deep burgundy (lower contrast) */
+
+/* High contrast - most readable */
+.blue-bright { color: #4DA8FF; }     /* Bright sky blue */
+.blue-electric { color: #00E5FF; }    /* Electric cyan blue */
+.blue-ice { color: #8DC9FF; }         /* Ice blue */
+
+/* Medium-high contrast */
+.blue-light { color: #6BB5FF; }       /* Light blue */
+.blue-cyan { color: #00D4FF; }        /* Cyan */
+.blue-sky { color: #87CEEB; }         /* Sky blue */
+
+/* Medium contrast - more subtle */
+.blue-steel { color: #4682B4; }       /* Steel blue */
+.blue-cornflower { color: #6495ED; }  /* Cornflower blue */
+.blue-powder { color: #B0E0E6; }      /* Powder blue */
+
+/* High contrast - most readable */
+.green-bright { color: #00FF88; }      /* Mint green */
+.green-lime { color: #32FF6E; }        /* Lime green */
+.green-electric { color: #39FF14; }    /* Electric green */
+
+/* Medium-high contrast */
+.green-spring { color: #00C853; }      /* Spring green */
+.green-emerald { color: #50DBB4; }     /* Emerald */
+.green-mint { color: #00E5A0; }        /* Mint */
+
+/* Medium contrast */
+.green-leaf { color: #4CAF50; }        /* Leaf green */
+.green-sea { color: #2ECC71; }         /* Sea green */
+.green-pastel { color: #69F0AE; }      /* Pastel green */
+
 body {
   margin: 0;
 }
 
 #root {
-  width: 1126px;
+  /* width: 1126px;
   max-width: 100%;
   margin: 0 auto;
   padding: 10px;
@@ -65,7 +124,7 @@ body {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  box-sizing: border-box; */
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -95,6 +154,16 @@ h4 {
   font-size: 19px;
   margin: 8px 0;
 }
+.fs-0 * {
+  font-size: initial;
+}
+.fs-2 * {
+  font-size: 105%;
+}
+.fs-3 * {
+  font-size: 115%;
+}
+
 p {
   margin: 0;
 }
@@ -120,11 +189,17 @@ p {
 .direction-column {
   flex-direction: column;
 }
+.direction-row {
+  flex-direction: row;
+}
 .justify-content-center {
   justify-content: center;
 }
 .justify-content-space-between {
   justify-content: space-between;
+}
+.justify-content-space-around {
+  justify-content: space-around;
 }
 .align-content-center {
   align-content: center;
@@ -160,6 +235,21 @@ p {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.ps-1 {
+  padding-left: 5px;
+}
+.pt-1 {
+  padding-top: 5px;
+}
+.pb-2 {
+  padding-bottom: 10px;
+}
+.pb-3 {
+  padding-bottom: 15px;
+}
 .radius-2 {
   border-radius: 10px;
 }
+
+
+

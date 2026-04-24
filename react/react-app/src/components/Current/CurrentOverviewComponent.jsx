@@ -1,5 +1,5 @@
 import './CurrentOverviewComponent.css'
-import {getUnitLabels} from './Functions'
+import {getUnitLabels} from '../Functions'
 
 function CurrentOverview({current,units,slider}) {
   const label = getUnitLabels(units);
@@ -84,7 +84,7 @@ function CurrentOverview({current,units,slider}) {
             <div className="">
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Dew Point</p>
-                <h3>{ current?.dew_point && current.dew_point  }</h3>
+                <h3>{ current?.dew_point && current.dew_point }{label.temp}</h3>
               </div>
             </div>
           </Slider>

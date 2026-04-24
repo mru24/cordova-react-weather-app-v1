@@ -1,10 +1,10 @@
 import { useState,useEffect } from 'react'
 import axios from 'axios'
-import './App.css'
-import CurrentWeather from './components/CurrentWeatherComponent'
+import CurrentWeather from './components/Current/CurrentWeatherComponent'
 import Footer from './components/FooterComponents'
 import Header from './components/HeaderComponent'
 import SlickSlider from './components/SlickSliderComponent'
+import './App.css'
 
 function App({coords}) {
   const [ units, setUnits ] = useState('metric')

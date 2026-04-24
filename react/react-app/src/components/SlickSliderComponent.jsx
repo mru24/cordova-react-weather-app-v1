@@ -1,6 +1,6 @@
-import CurrentOverview from "./CurrentOverviewComponent"
-import DailyWeather from "./DailyWeatherComponent"
-import HourlyWeather from "./HourlyWeatherComponent"
+import CurrentOverview from "./Current/CurrentOverviewComponent"
+import DailyWeather from "./Daily/DailyWeatherComponent"
+import HourlyWeather from "./Hourly/HourlyWeatherComponent"
 import '../assets/slick/slick.min.css'
 import '../assets/slick/slick-theme.min.css'
 import Slick from 'react-slick'

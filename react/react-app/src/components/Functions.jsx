@@ -39,8 +39,8 @@ export const startOfDay = (timestamp) => {
 export const endOfDay = (timestamp) => {
   const date = new Date(timestamp * 1000);
   const nextDay = new Date(date);
-  nextDay.setDate(date.getDate() + 1);
-  nextDay.setHours(0, 0, 0, 0);
+  nextDay.setDate(date.getDate());
+  nextDay.setHours(23, 59, 59, 999);
   return Math.floor(nextDay.getTime() / 1000);
 }
 export const formatDate = (timestamp) => {
@@ -53,5 +53,9 @@ export const formatDate = (timestamp) => {
 };
 export const formatTime = (timestamp) => {
   const date = new Date(timestamp * 1000);
-  return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+  return date.toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  });
 };
