@@ -1,6 +1,7 @@
 import {getUnitLabels} from '../Functions'
 
-function Wind({wind,units}) {
+function Wind({wind,units,icon}) {
+  if(!wind) return;
   let windInMS = wind;
   if (units === 'imperial') {
     windInMS = wind * 0.44704;
@@ -10,9 +11,9 @@ function Wind({wind,units}) {
   const roundWind = Math.round(wind * 10) / 10;
 
   return (
-    <p className="flex direction-row justify-content-center pt-1">
-      <img src="icons/wind.svg" width={20} />
-      <span className={`${colorLabel} fs-0 ps-1`}>{roundWind}{label.speed}</span>
+    <p className="flex direction-row justify-content-center">
+      { icon!==false && <img src="icons/wind.svg" width={20} /> }
+      <span className={`${colorLabel} ps-1`}>{roundWind}{label.speed}</span>
     </p>
   )
 }

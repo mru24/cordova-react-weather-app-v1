@@ -2,10 +2,11 @@
 <widget id="com.example.reactapp" version="1.0.0"
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android"> <name>ReactApp</name>
-    <description>Sample Apache Cordova App</description>
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Weather App 5</name>
+    <description>React Weather App version 5.0.0</description>
     <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
-        Apache Cordova Team
+        WW Project Studio 2026
     </author>
 
     <content src="index.html" />
@@ -13,9 +14,9 @@
     <allow-intent href="https://*/*" />
 
     <platform name="android">
-        <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        </config-file>
+      <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+      </config-file>
     </platform>
 </widget>

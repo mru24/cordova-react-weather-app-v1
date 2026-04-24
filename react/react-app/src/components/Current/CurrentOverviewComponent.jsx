@@ -1,5 +1,8 @@
 import './CurrentOverviewComponent.css'
 import {getUnitLabels} from '../Functions'
+import Temp from '../WeatherComponents/TempComponent';
+import Wind from '../WeatherComponents/WindComponent';
+import WindDirection from '../WeatherComponents/WindDirectionComponent';
 
 function CurrentOverview({current,units,slider}) {
   const label = getUnitLabels(units);
@@ -21,7 +24,9 @@ function CurrentOverview({current,units,slider}) {
             <div className="">
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Feels like</p>
-                <h3>{ current?.feels_like && current.feels_like }{label.temp}</h3>
+                <h3>
+                  <Temp temp={current.feels_like} units={units} />
+                </h3>
               </div>
             </div>
             <div className="">
@@ -39,28 +44,20 @@ function CurrentOverview({current,units,slider}) {
             <div className="">
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Wind</p>
-                <h3>{ current?.wind_speed && current.wind_speed }{label.speed}</h3>
+                <h3>
+                  <Wind wind={current.wind_speed} units={units} icon={false} />
+                </h3>
               </div>
             </div>
             <div className="">
-              <div className="flex direction-column align-items-center justify-content-center">
-                <p>Wind</p>
-                <div
-                  style={{
-                    transform: `rotate(${current.wind_deg}deg)`,
-                    width: "30px"
-                  }}
-                >
-                  <svg viewBox="0 0 24 24">
-                    <path d="M12 2 L15 8 H13 V22 H11 V8 H9 Z" fill="white" />
-                  </svg>
-                </div>
-              </div>
+              <WindDirection dir={current.wind_deg} />
             </div>
             <div className="">
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Gusts</p>
-                <h3>{ current?.wind_gust && current.wind_gust }{label.speed}</h3>
+                <h3>
+                  <Wind wind={current.wind_gust} units={units} icon={false} />
+                </h3>
               </div>
             </div>
             <div className="">

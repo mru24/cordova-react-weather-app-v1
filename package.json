@@ -1,8 +1,8 @@
 {
   "name": "com.example.reactapp",
-  "displayName": "ReactApp",
+  "displayName": "Weather App 5",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "Cordova weather app version 5.0.0 based on React JS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

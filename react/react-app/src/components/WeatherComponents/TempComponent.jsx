@@ -1,6 +1,7 @@
 import {getUnitLabels} from '../Functions'
 
 function Temp({temp,units}) {
+  if(!temp) return;
   let tempInC = temp;
   if (units === 'imperial') {
     tempInC = (temp - 32) * 5/9;
