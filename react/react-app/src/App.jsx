@@ -12,6 +12,7 @@ function App({coords}) {
   const [ current, setCurrent ] = useState(null)
   const [ daily, setDaily ] = useState(null)
   const [ hourly, setHourly ] = useState(null)
+  const [ hourlyData,setHourlyData ] = useState(null)
 
   const lat = coords?.lat || import.meta.env.VITE_WEATHER_LAT
   const lon = coords?.lng || import.meta.env.VITE_WEATHER_LON
@@ -39,11 +40,13 @@ function App({coords}) {
 
       <div className="content">
 
-        { current && <CurrentWeather current={ current } units={ units } />}
+        { current && <CurrentWeather current={current} units={units} />}
 
-        { hourly && <SlickSlider target={'hourly'} current={ current } hourly={ hourly } units={ units } />}
+        { hourly && <SlickSlider target={'hourly'} current={current} hourly={hourly} units={units} />}
 
-        { daily && <SlickSlider target={'daily'} current={ current } daily={daily} hourly={ hourly } units={ units } />}
+        { daily && <SlickSlider target={'daily'} current={current} daily={daily} hourly={hourly} units={units} hourlyData={hourlyData} setHourlyData={setHourlyData} />}
+
+        { hourlyData && <SlickSlider target={'hourly'} current={hourlyData} hourly={hourly} units={units} />}
 
       </div>
 

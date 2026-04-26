@@ -8,7 +8,7 @@ import './SlickSliderComponent.css'
 
 const Slider = Slick.default;
 
-function SimpleSlider({target,current=null,daily=[],hourly=[],units}) {
+function SimpleSlider({target,current=null,daily=[],hourly=[],units,hourlyData,setHourlyData}) {
 
   if(target==='currentOverview') {
     return (
@@ -22,7 +22,7 @@ function SimpleSlider({target,current=null,daily=[],hourly=[],units}) {
   }
   if(target==='daily') {
     return (
-      <DailyWeather key="daily" current={current} daily={daily} hourly={hourly} units={units} slider={Slider} />
+      <DailyWeather key="daily" current={current} daily={daily} hourly={hourly} units={units} slider={Slider} hourlyData={hourlyData} setHourlyData={setHourlyData}  />
     )
   }
 }

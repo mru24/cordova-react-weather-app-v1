@@ -7,7 +7,7 @@ function HourlyWeather({ current,hourly,units,slider }) {
   const settings = {
     dots: true,
     arrows: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3

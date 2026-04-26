@@ -7,6 +7,8 @@ export const getUnitLabels = (unitSystem) => {
     speed: isMetric ? "m/s" : "mph",
     distance: isMetric ? "km" : "mi",
     UVI: "UV",
+    pop: "%",
+    precip: isMetric ? "mm/h" : "in/h",
   };
 };
 export const getDayName = (timestamp) => {
