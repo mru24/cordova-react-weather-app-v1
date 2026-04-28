@@ -21,7 +21,7 @@ function CurrentOverview({current,units,slider}) {
       <div className="bg-dk my-2 radius-2">
         <div className="py-3">
           <Slider {...settings}>
-            <div className="">
+            <div className="" inert>
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Feels like</p>
                 <h3>
@@ -29,19 +29,19 @@ function CurrentOverview({current,units,slider}) {
                 </h3>
               </div>
             </div>
-            <div className="">
+            <div className="" inert>
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Humidity</p>
                 <h3>{ current?.humidity && current.humidity }{label.humidity}</h3>
               </div>
             </div>
-            <div className="">
+            <div className="" inert>
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Pressure</p>
                 <h3>{ current?.pressure && current.pressure }{label.pressure}</h3>
               </div>
             </div>
-            <div className="">
+            <div className="" inert>
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Wind</p>
                 <h3>
@@ -49,10 +49,10 @@ function CurrentOverview({current,units,slider}) {
                 </h3>
               </div>
             </div>
-            <div className="">
+            <div className="" inert>
               <WindDirection dir={current.wind_deg} />
             </div>
-            <div className="">
+            <div className="" inert>
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Gusts</p>
                 <h3>
@@ -60,25 +60,25 @@ function CurrentOverview({current,units,slider}) {
                 </h3>
               </div>
             </div>
-            <div className="">
+            <div className="" inert>
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Clouds</p>
                 <h3>{ current?.clouds && current.clouds }</h3>
               </div>
             </div>
-            <div className="">
+            <div className="" inert>
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Visibility</p>
                 <h3>{ current?.visibility && current.visibility/1000 }{label.distance}</h3>
               </div>
             </div>
-            <div className="">
+            <div className="" inert>
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>UVI</p>
                 <h3>{ current?.uvi && current.uvi }{label.UVI}</h3>
               </div>
             </div>
-            <div className="">
+            <div className="" inert>
               <div className="flex direction-column align-items-center justify-content-center">
                 <p>Dew Point</p>
                 <h3>{ current?.dew_point && current.dew_point }{label.temp}</h3>

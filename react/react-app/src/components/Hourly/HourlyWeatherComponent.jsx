@@ -1,5 +1,5 @@
 import Hour from "./HourComponent"
-import {startOfDay,endOfDay,formatTime, formatDate} from '../Functions'
+import { startOfDay,endOfDay,formatTime,formatDate,getDayName } from '../Functions'
 
 function HourlyWeather({ current,hourly,units,slider }) {
 
@@ -17,16 +17,24 @@ function HourlyWeather({ current,hourly,units,slider }) {
       <div className="slider-container" style={{marginBottom:"50px"}}>
         <div className="bg-dk my-2 radius-2">
           <div className="">
+            <p className="pt-2 text-center">{formatDate(current.dt)}</p>
+            <p className="pb-2 text-center">{ getDayName(current.dt) }</p>
             <Slider {...settings}>
-              {hourly
-                .filter((hour)=>{
-                  return hour.dt>=startOfDay(current.dt) && hour.dt<=endOfDay(current.dt);
-                })
-                .map((hour)=>(
-                <div className="hour-slide" key={hour.dt}>
-                  <Hour hour={hour} units={units} slider={slider} />
-                </div>
-              ))}
+              {(() => {
+                const filteredHourly = hourly.filter((hour) => {
+                  return hour.dt >= startOfDay(current.dt) && hour.dt <= endOfDay(current.dt);
+                });
+
+                return filteredHourly.length > 0 ? (
+                  filteredHourly.map((hour) => (
+                    <div className="hour-slide" key={hour.dt} inert>
+                      <Hour hour={hour} units={units} slider={slider} />
+                    </div>
+                  ))
+                ) : (
+                  <p className="p-2">No hourly data</p>
+                );
+              })()}
             </Slider>
           </div>
         </div>
