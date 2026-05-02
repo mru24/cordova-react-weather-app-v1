@@ -1,0 +1,10 @@
+ul.search-results {
+  list-style: none;
+  padding: 10px 20px 15px;
+  background-color: var(--bg-dk);
+  margin-top: 0;
+}
+ul.search-results li {
+  font-size: 19px;
+  margin-bottom: 7px;
+}
