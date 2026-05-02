@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useDebounce } from 'react-use'
 import axios from 'axios'
 import CurrentWeather from './components/Current/CurrentWeatherComponent'
@@ -9,19 +9,19 @@ import Search from './components/Search/SearchComponent'
 import './App.css'
 import SearchResults from './components/Search/SearchResultsComponent'
 
-function App({coords}) {
-  const [ units, setUnits ] = useState('metric')
-  const [ data, setData ] = useState(null)
-  const [ current, setCurrent ] = useState(null)
-  const [ daily, setDaily ] = useState(null)
-  const [ hourly, setHourly ] = useState(null)
-  const [ hourlyData,setHourlyData ] = useState(null)
+function App({ coords }) {
+  const [units, setUnits] = useState('metric')
+  const [data, setData] = useState(null)
+  const [current, setCurrent] = useState(null)
+  const [daily, setDaily] = useState(null)
+  const [hourly, setHourly] = useState(null)
+  const [hourlyData, setHourlyData] = useState(null)
 
-  const [ searchQuery, setSearchQuery ] = useState('')
-  const [ debounceSearchQuery, setDebouncedQuery ] = useState('')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [debounceSearchQuery, setDebouncedQuery] = useState('')
   useDebounce(() => setDebouncedQuery(searchQuery), 800, [searchQuery])
 
-  const [ searchResults, setSearchResults ] = useState([])
+  const [searchResults, setSearchResults] = useState([])
 
   const defaultCoords = {
     lat: coords?.lat || import.meta.env.VITE_WEATHER_LAT,
@@ -35,7 +35,7 @@ function App({coords}) {
     setUnits((prev) => (prev === 'metric' ? 'imperial' : 'metric'));
   }
   const getLocation = async () => {
-    const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${searchQuery}&limit=8&appid=${API_KEY}`)
+    const response = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${searchQuery}&limit=8&appid=${API_KEY}`)
     console.log(response);
     setSearchResults(response.data);
   }
@@ -56,13 +56,13 @@ function App({coords}) {
       setSearchResults(null)
     }
     getWeather()
-  },[ units, selectedCoords ])
+  }, [units, selectedCoords])
 
   useEffect(() => {
-    if(searchQuery.length > 3) {
+    if (searchQuery.length > 3) {
       getLocation();
     }
-  }, [ debounceSearchQuery ])
+  }, [debounceSearchQuery])
 
   return (
     <>
@@ -77,13 +77,13 @@ function App({coords}) {
           searchResults={searchResults}
           onLocationSelect={(lat, lon) => setSelectedCoords({ lat, lon })} />
 
-        { current && <CurrentWeather current={current} units={units} />}
+        {current && <CurrentWeather current={current} units={units} />}
 
-        { hourly && <SlickSlider target={'hourly'} current={current} hourly={hourly} units={units} />}
+        {hourly && <SlickSlider target={'hourly'} current={current} hourly={hourly} units={units} />}
 
-        { daily && <SlickSlider target={'daily'} current={current} daily={daily} hourly={hourly} units={units} hourlyData={hourlyData} setHourlyData={setHourlyData} />}
+        {daily && <SlickSlider target={'daily'} current={current} daily={daily} hourly={hourly} units={units} hourlyData={hourlyData} setHourlyData={setHourlyData} />}
 
-        { hourlyData && <SlickSlider target={'hourly'} current={hourlyData} hourly={hourly} units={units} />}
+        {hourlyData && <SlickSlider target={'hourly'} current={hourlyData} hourly={hourly} units={units} />}
 
       </div>
 
