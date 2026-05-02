@@ -11,7 +11,7 @@ function Hour({ hour, units }) {
   const rainVolume = hour.rain?.["1h"] || 0;
   const snowVolume = hour.snow?.["1h"] || 0;
   return (
-    <div className="p-3 text-center fs-2">
+    <div className="p-2 text-center">
       <p>{formatTime(hour.dt)}</p>
       <div className="flex direction-column align-items-center justify-content-center h-100">
         <img src={`https://openweathermap.org/img/wn/${hour.weather[0].icon}.png`} />

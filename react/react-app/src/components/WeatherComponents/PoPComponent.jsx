@@ -1,6 +1,6 @@
-import {getUnitLabels} from '../Functions'
+import { getUnitLabels } from '../Functions'
 
-function PoP({pop=0,rain=0,snow=0,units}) {
+function PoP({ pop = 0, rain = 0, snow = 0, units }) {
   let rainInMM = rain;
   if (units === 'imperial') {
     rainInMM = rainInMM * 0.03937;
@@ -13,19 +13,19 @@ function PoP({pop=0,rain=0,snow=0,units}) {
 
   return (
     <>
-      { pop > 0 && (
+      {pop > 0 && (
         <p className="pt-2 fs-3">
-          <span>🌧️<br />{pop*100}{label.pop}</span>
+          <span>🌧️ {pop * 100}{label.pop}</span>
         </p>
       )}
-      { rainInMM > 0 && (
+      {rainInMM > 0 && (
         <p className="pt-1 fs--2">
-          <span>💧<br />{rainInMM.toFixed(2)}{label.precip}</span>
+          <span>💧 {rainInMM.toFixed(1)}{label.precip}</span>
         </p>
       )}
-      { snowInMM > 0 && (
+      {snowInMM > 0 && (
         <p className="pt-1 fs--2">
-          <span>❄️<br />{snowInMM.toFixed(2)}{label.precip}</span>
+          <span>❄️ {snowInMM.toFixed(1)}{label.precip}</span>
         </p>
       )}
     </>

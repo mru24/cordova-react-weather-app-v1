@@ -1,18 +1,18 @@
-import {getUnitLabels} from '../Functions'
+import { getUnitLabels } from '../Functions'
 
-function Wind({wind,units,icon}) {
-  if(!wind) return;
+function Wind({ wind, units, icon }) {
+  if (!wind) return;
   let windInMS = wind;
   if (units === 'imperial') {
     windInMS = wind * 0.44704;
   }
   const label = getUnitLabels(units);
-  const colorLabel = windInMS>10 ? 'red' : windInMS>5 ? 'yellow-muted' : '';
+  const colorLabel = windInMS > 10 ? 'red' : windInMS > 5 ? 'yellow-muted' : '';
   const roundWind = Math.round(wind * 10) / 10;
 
   return (
     <p className="flex direction-row justify-content-center">
-      { icon!==false && <img src="icons/wind.svg" width={20} /> }
+      {icon !== false && <img src="icons/wind.svg" width={24} />}
       <span className={`${colorLabel} ps-1`}>{roundWind}{label.speed}</span>
     </p>
   )

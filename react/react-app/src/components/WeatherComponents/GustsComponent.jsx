@@ -12,7 +12,7 @@ function Gusts({ gusts, units, icon }) {
 
   return (
     <p className="flex direction-row justify-content-center">
-      {icon !== false && <img src="icons/gusts.svg" width={20} />}
+      {icon !== false && <img src="icons/gusts.svg" width={24} />}
       <span className={`${colorLabel} ps-1`}>{roundGusts}{label.speed}</span>
     </p>
   )

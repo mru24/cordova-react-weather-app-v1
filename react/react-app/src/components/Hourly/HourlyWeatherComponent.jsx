@@ -1,7 +1,7 @@
 import Hour from "./HourComponent"
-import { startOfDay,endOfDay,formatTime,formatDate,getDayName } from '../Functions'
+import { startOfDay, endOfDay, formatTime, formatDate, getDayName } from '../Functions'
 
-function HourlyWeather({ current,hourly,units,slider }) {
+function HourlyWeather({ current, hourly, units, slider }) {
 
   const Slider = slider;
   const settings = {
@@ -14,11 +14,10 @@ function HourlyWeather({ current,hourly,units,slider }) {
   };
   return (
     <>
-      <div className="slider-container" style={{marginBottom:"50px"}}>
+      <div className="slider-container" style={{ marginBottom: "50px" }}>
         <div className="bg-dk my-2 radius-2">
           <div className="">
-            <p className="pt-2 text-center">{formatDate(current.dt)}</p>
-            <p className="pb-2 text-center">{ getDayName(current.dt) }</p>
+            <p className="pt-2 text-center">{formatDate(current.dt)} | {getDayName(current.dt)}</p>
             <Slider {...settings}>
               {(() => {
                 const filteredHourly = hourly.filter((hour) => {
