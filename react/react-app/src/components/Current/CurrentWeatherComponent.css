@@ -1,0 +1,76 @@
+.current-weather-time {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    background-color: var(--bg);
+    border: 2px solid lightblue;
+    box-shadow: inset 1px 0px 16px -1px black
+}
+
+.current-weather-time>.content {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.current-weather-time #hours,
+.current-weather-time #minutes,
+.current-weather-time #seconds {
+    position: absolute;
+    border-radius: 50%;
+    content: '';
+}
+
+.current-weather-time #hours {
+    z-index: -3;
+    inset: -30px;
+    background: conic-gradient(transparent 60%, #c084fc);
+    transform: rotate(180deg);
+}
+
+.current-weather-time #hours::before {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    inset: 10px;
+    background: conic-gradient(transparent, #c084fc);
+    filter: blur(2rem);
+    opacity: 0.8;
+    content: '';
+}
+
+.current-weather-time #minutes {
+    z-index: -2;
+    inset: -20px;
+    background: conic-gradient(transparent 20%, #22d3ee);
+    transform: rotate(90deg);
+}
+
+.current-weather-time #seconds {
+    z-index: -1;
+    inset: -10px;
+    background: conic-gradient(transparent 30%, #93ff80);
+    transform: rotate(280deg);
+}
+
+/* .current-weather-time::before {
+    position: absolute;
+    z-index: -1;
+    inset: -4px;
+    background: conic-gradient(transparent, red);
+    border-radius: 50%;
+    content: '';
+    transform: rotate(20deg);
+}
+
+.current-weather-time::after {
+    position: absolute;
+    z-index: -2;
+    inset: -10px;
+    background: conic-gradient(transparent, green);
+    border-radius: 50%;
+    content: '';
+} */
