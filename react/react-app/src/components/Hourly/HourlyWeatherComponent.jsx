@@ -5,16 +5,15 @@ function HourlyWeather({ current, hourly, units, slider }) {
 
   const Slider = slider;
   const settings = {
-    dots: true,
-    arrows: false,
+    dots: false,
+    arrows: true,
     infinite: false,
-    speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 3
+    slidesToScroll: 1
   };
   return (
     <>
-      <div className="slider-container" style={{ marginBottom: "50px" }}>
+      <div className="slider-container">
         <div className="bg-dk my-2 radius-2">
           <div className="">
             <p className="pt-2 text-center">{formatDate(current.dt)} | {getDayName(current.dt)}</p>

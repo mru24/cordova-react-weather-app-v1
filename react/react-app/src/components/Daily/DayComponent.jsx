@@ -29,7 +29,6 @@ function Day({ day, units }) {
         </span>
       )}
 
-
       <Wind wind={day.wind_speed} units={units} />
       <Gusts gusts={day.wind_gust} units={units} />
 
