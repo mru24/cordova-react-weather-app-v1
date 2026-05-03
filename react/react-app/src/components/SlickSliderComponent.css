@@ -15,3 +15,51 @@
   opacity: .75;
   color: #111;
 }
+
+.slick-arrow {}
+
+.slick-arrow.slick-next,
+.slick-arrow.slick-prev {
+  top: 14%;
+}
+
+.slick-arrow.slick-next {
+  right: -35px;
+}
+
+.slick-arrow.slick-prev {
+  left: -18px;
+}
+
+.slick-arrow.slick-prev::before,
+.slick-arrow.slick-next::before,
+.slick-arrow.slick-prev::after,
+.slick-arrow.slick-next::after {
+  display: block;
+  content: '';
+  background: white;
+  width: 5px;
+  height: 35px;
+}
+
+.slick-arrow.slick-prev::before {
+  transform: rotate(8deg);
+  transform-origin: bottom;
+}
+
+.slick-arrow.slick-prev::after {
+  transform: rotate(-8deg);
+  transform-origin: top;
+}
+
+.slick-arrow.slick-next::before {
+  transform: rotate(-8deg);
+  transform-origin: bottom;
+}
+
+.slick-arrow.slick-next::after {
+  transform: rotate(8deg);
+  transform-origin: top;
+}
+
+.slick-arrow .slick-next::after {}
