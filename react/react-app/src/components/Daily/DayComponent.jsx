@@ -15,7 +15,6 @@ function Day({ day, units }) {
         <p style={{ marginTop: "-2px", marginBottom: "8px" }}>{day.weather[0].main}</p>
       </div>
       <Temp temp={day.temp.day} units={units} />
-      <PoP pop={day.pop} rain={day.rain} snow={day.snow} units={units} />
 
       {day?.temp.min && (
         <span className="flex direction-row align-items-baseline justify-content-center">
@@ -31,6 +30,8 @@ function Day({ day, units }) {
 
       <Wind wind={day.wind_speed} units={units} />
       <Gusts gusts={day.wind_gust} units={units} />
+
+      <PoP pop={day.pop} rain={day.rain} snow={day.snow} units={units} />
 
     </div>
   )

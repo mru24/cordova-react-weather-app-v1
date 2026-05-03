@@ -6,8 +6,9 @@ import Footer from './components/FooterComponents'
 import Header from './components/HeaderComponent'
 import SlickSlider from './components/SlickSliderComponent'
 import Search from './components/Search/SearchComponent'
-import './App.css'
 import SearchResults from './components/Search/SearchResultsComponent'
+
+import './App.css'
 
 function App({ coords }) {
   const [units, setUnits] = useState('metric')
@@ -36,7 +37,7 @@ function App({ coords }) {
   }
   const getLocation = async () => {
     const response = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${searchQuery}&limit=8&appid=${API_KEY}`)
-    console.log(response);
+    console.log('Location: ', response);
     setSearchResults(response.data);
   }
   const handleReset = () => {

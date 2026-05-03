@@ -37,7 +37,7 @@ function CurrentWeather({ current, units }) {
     <div className="current-weather">
       <div className="spacer my-3"></div>
       <div className="px-3 py-5">
-        <div className="current-weather-time" style={{ backgroundColor: isDay ? '#32609e' : '#162a45' }}>
+        <div className="current-weather-time" style={{ backgroundColor: isDay ? '#32609e' : '#162a45', borderColor: isDay ? '#fb3737' : '#9d0505' }}>
           <div id="hours" style={{ transform: `rotate(${rotation.hours}deg)` }}></div>
           <div id="minutes" style={{ transform: `rotate(${rotation.minutes}deg)` }}></div>
           <div id="seconds" style={{ transform: `rotate(${rotation.seconds}deg)` }}></div>
