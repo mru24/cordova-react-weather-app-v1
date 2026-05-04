@@ -1,10 +1,17 @@
 .slider-container {
   width: 90%;
   margin: auto;
+  padding-bottom: 15px;
+}
+
+.slider-container>.content {
+  background-color: var(--bg-dk);
+  border-radius: 8px;
+  margin: 15px 0;
 }
 
 .slick-dots {
-  bottom: -40px;
+  bottom: -35px;
 }
 
 .slick-dots li button::before {
